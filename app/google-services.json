@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "23269114940",
+    "project_id": "smd-semester-project-classroom",
+    "storage_bucket": "smd-semester-project-classroom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:23269114940:android:25971ba53e9a6f888a6f39",
+        "android_client_info": {
+          "package_name": "com.example.smdsemesterprojectclassroom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "23269114940-59l67fh3a26hpt2sk1sfpnrl46nvt8ta.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7a7FKfbfpA4e5oUOIYVEoqk_BLCSNN3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "23269114940-59l67fh3a26hpt2sk1sfpnrl46nvt8ta.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
