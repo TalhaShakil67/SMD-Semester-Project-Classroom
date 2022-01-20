@@ -8,7 +8,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    Intent intent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,11 +18,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void AddTeacher(View view)
     {
+        Intent intent;
         intent = new Intent(this, AddTeacherActivity.class);
         startActivity(intent);
     }
     public void AddStudent(View view)
     {
+        Intent intent;
         intent = new Intent(this, AddStudentActivity.class);
         startActivity(intent);
     }
