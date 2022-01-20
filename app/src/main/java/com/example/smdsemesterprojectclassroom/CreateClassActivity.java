@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +20,7 @@ public class CreateClassActivity extends AppCompatActivity {
     DbActions dbActions;
     TeacherModel loggedInTeacher;
     ArrayList<StudentModel> studentsEnrolled;
+    SharedPreferences teacherObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class CreateClassActivity extends AppCompatActivity {
         }
 
         dbActions = new DbActions();
+        teacherObject = getSharedPreferences("LoggedInTeacher", 0);
         studentsEnrolled = new ArrayList<>();
         classID = findViewById(R.id.edittxtclassid);
         className = findViewById(R.id.edittxtclassname);
@@ -44,24 +47,36 @@ public class CreateClassActivity extends AppCompatActivity {
 
     public void CreateClass(View view)
     {
-        Intent intent=new Intent(this,AddTeacherActivity.class);
-        startActivityForResult(intent, 101);// Activity is started with requestCode 101
+        // intent=new Intent(this,AddTeacherActivity.class);
+        //startActivityForResult(intent, 101);// Activity is started with requestCode 101
 
 
-        ClassroomModel classroom = new ClassroomModel(classID.getText().toString(), className.getText().toString(), loggedInTeacher, studentsEnrolled);
-        dbActions.createClassroom(classroom);
-        Toast.makeText(getApplicationContext(), "Class Created Successfully", Toast.LENGTH_LONG).show();
+        loggedInTeacher = new TeacherModel(
+                Integer.parseInt(teacherObject.getString("id", "id not found")),
+                teacherObject.getString("name", "name not found"),
+                teacherObject.getString("email", "email not found"),
+                teacherObject.getString("role", "role not found"),
+                teacherObject.getString("qualification", "qualification not found"),
+                Integer.parseInt(teacherObject.getString("age", "age not found")),
+                Long.parseLong(teacherObject.getString("phoneNumber", "phone number not found"))
+            );
+
+        Log.d("teacher", loggedInTeacher.Qualification);
+        //ClassroomModel classroom = new ClassroomModel(classID.getText().toString(), className.getText().toString(), loggedInTeacher, studentsEnrolled);
+        //dbActions.createClassroom(classroom);
+        //Toast.makeText(getApplicationContext(), "Class Created Successfully", Toast.LENGTH_LONG).show();
     }
 
-    @Override
+    /*@Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // check if the request code is same as what is passed  here it is 101
         if(requestCode == 101)
         {
+            Log.d("teacher", data.getExtras().getString("id").toString());
             //loggedInTeacher = data.getParcelableExtra("LoggedInTeacher");
 
-            loggedInTeacher = new TeacherModel(
+            *//*loggedInTeacher = new TeacherModel(
 
                     Integer.parseInt(data.getExtras().getString("id")),
                     data.getExtras().getString("name"),
@@ -72,7 +87,7 @@ public class CreateClassActivity extends AppCompatActivity {
                     Long.parseLong(data.getExtras().getString("phoneNumber"))
             );
 
-            Log.d("teacher", loggedInTeacher.Qualification);
+            Log.d("teacher", loggedInTeacher.Qualification);*//*
         }
-    }
+    }*/
 }

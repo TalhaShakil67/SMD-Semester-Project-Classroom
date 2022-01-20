@@ -100,10 +100,11 @@ public class AddTeacherActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot)
             {
                 TeacherModel dummy = null;
+                //Intent intent = new Intent();
                 Integer id = dbActions.getCurrentTeacherID();
                 for (DataSnapshot teacher : snapshot.getChildren())
                 {
-                    dummy = new TeacherModel(
+                    /*dummy = new TeacherModel(
                             id,
                             teacher.child("name").getValue().toString(),
                             teacher.child("email").getValue().toString(),
@@ -112,18 +113,18 @@ public class AddTeacherActivity extends AppCompatActivity {
                             Integer.parseInt(teacher.child("age").getValue().toString()),
                             Long.parseLong(teacher.child("phoneNumber").getValue().toString())
                     );
-                    Log.d("teacher", "Dummy data: " + dummy.Qualification);
+                    Log.d("teacher", "Dummy data: " + dummy.Qualification);*/
 
-                    /*intent.putExtra("id", id);
-                    intent.putExtra("name", teacher.child("name").getValue().toString());
+                    //intent.putExtra("id", id.toString());
+                    Log.d("teacher", "intent added");
+                    /*intent.putExtra("name", teacher.child("name").getValue().toString());
                     intent.putExtra("email", teacher.child("email").getValue().toString());
                     intent.putExtra("role", teacher.child("role").getValue().toString());
                     intent.putExtra("qualification", teacher.child("qualification").getValue().toString());
-                    intent.putExtra("age", Integer.parseInt(teacher.child("age").getValue().toString()));
-                    intent.putExtra("phoneNumber", Long.parseLong(teacher.child("phoneNumber").getValue().toString()));
-                    setResult(101, intent);
-                    finish();
-                    Log.d("teacher", "activity closed and intented");*/
+                    intent.putExtra("age", teacher.child("age").getValue().toString());
+                    intent.putExtra("phoneNumber", teacher.child("phoneNumber").getValue().toString());*/
+
+
                 }
                 loggedInTeacher = dummy;
 
@@ -134,16 +135,18 @@ public class AddTeacherActivity extends AppCompatActivity {
                 finish();
                 Log.d("teacher", "activity closed");*/
 
-                Intent intent = new Intent();
-                intent.putExtra("id", dummy.getID());
-                intent.putExtra("name", dummy.getName());
-                intent.putExtra("email", dummy.getName());
-                intent.putExtra("role", dummy.getName());
-                intent.putExtra("qualification", dummy.getName());
-                intent.putExtra("age", dummy.getName());
-                intent.putExtra("phoneNumber", dummy.getName());
-                setResult(101, intent);
-                finish();
+                /*Intent intent = new Intent();
+                intent.putExtra("id", dummy.getID().toString());
+                intent.putExtra("name", dummy.getName().toString());
+                intent.putExtra("email", dummy.getEmail().toString());
+                intent.putExtra("role", dummy.getRole().toString());
+                intent.putExtra("qualification", dummy.getQualification().toString());
+                intent.putExtra("age", dummy.getAge().toString());
+                intent.putExtra("phoneNumber", dummy.getPhoneNumber().toString());*/
+
+                //setResult(101, intent);
+                //Log.d("teacher", dummy.getID().);
+                //finish();
                 Log.d("teacher", "activity closed and intented");
             }
 
