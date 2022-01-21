@@ -7,18 +7,12 @@
         <entry key="..\:/AndroidStudioProjects/SMDSemesterProjectClassroom/app/src/main/res/layout/activity_add_teacher.xml" value="0.18229166666666666" />
         <entry key="..\:/AndroidStudioProjects/SMDSemesterProjectClassroom/app/src/main/res/layout/activity_class.xml" value="0.19635416666666666" />
         <entry key="..\:/AndroidStudioProjects/SMDSemesterProjectClassroom/app/src/main/res/layout/activity_create_class.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/SMDSemesterProjectClassroom/app/src/main/res/layout/activity_create_quiz.xml" value="0.19635416666666666" />
+        <entry key="..\:/AndroidStudioProjects/SMDSemesterProjectClassroom/app/src/main/res/layout/activity_login_student.xml" value="0.19635416666666666" />
         <entry key="..\:/AndroidStudioProjects/SMDSemesterProjectClassroom/app/src/main/res/layout/activity_login_teacher.xml" value="0.19635416666666666" />
         <entry key="..\:/AndroidStudioProjects/SMDSemesterProjectClassroom/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/SMDSemesterProjectClassroom/app/src/main/res/layout/activity_my_classes.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/SMDSemesterProjectClassroom/app/src/main/res/layout/activity_teacher_portal.xml" value="0.22" />
-        <entry key="..\:/Users/Wasti/SMD-Semester-Project-Classroom/app/src/main/res/layout/activity_add_teacher.xml" value="0.19927536231884058" />
-        <entry key="..\:/Users/Wasti/SMD-Semester-Project-Classroom/app/src/main/res/layout/activity_class.xml" value="0.19927536231884058" />
-        <entry key="..\:/Users/Wasti/SMD-Semester-Project-Classroom/app/src/main/res/layout/activity_create_class.xml" value="0.19927536231884058" />
-        <entry key="..\:/Users/Wasti/SMD-Semester-Project-Classroom/app/src/main/res/layout/activity_create_quiz.xml" value="0.19927536231884058" />
-        <entry key="..\:/Users/Wasti/SMD-Semester-Project-Classroom/app/src/main/res/layout/activity_main.xml" value="0.19927536231884058" />
-        <entry key="..\:/Users/Wasti/SMD-Semester-Project-Classroom/app/src/main/res/layout/activity_my_classes.xml" value="0.19927536231884058" />
-        <entry key="..\:/Users/Wasti/SMD-Semester-Project-Classroom/app/src/main/res/layout/activity_teacher_portal.xml" value="0.19927536231884058" />
-        <entry key="..\:/Users/Wasti/SMD-Semester-Project-Classroom/app/src/main/res/layout/add_question_rec.xml" value="0.19927536231884058" />
       </map>
     </option>
   </component>

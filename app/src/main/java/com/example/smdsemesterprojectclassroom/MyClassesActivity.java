@@ -3,6 +3,7 @@ package com.example.smdsemesterprojectclassroom;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +20,8 @@ public class MyClassesActivity extends AppCompatActivity {
 
     DbActions dbActions;
     EditText classCode;
+    SharedPreferences studentObject;
+    StudentModel loggedInStudent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,30 +30,53 @@ public class MyClassesActivity extends AppCompatActivity {
 
         dbActions = new DbActions();
         classCode = findViewById(R.id.edittxtenterclasscode);
+        studentObject = getSharedPreferences("LoggedInStudent", 0);
 
         //classCode.setText("HBXA2PJQ1F");
-        classCode.setText("ZSC07BW78I");
+        classCode.setText("2XKN20T4S4");
+
+        loggedInStudent = new StudentModel(
+                Integer.parseInt(studentObject.getString("id", "id not found")),
+                studentObject.getString("name", "name not found"),
+                Long.parseLong(studentObject.getString("cnic", "cnic not found")),
+                Integer.parseInt(studentObject.getString("age", "age not found")),
+                Integer.parseInt(studentObject.getString("semester", "semester not found")),
+                Float.parseFloat(studentObject.getString("cgpa", "cgpa not found"))
+        );
     }
 
     public void JoinClass(View view)
     {
-        Query query = dbActions.databaseReference.child("Classrooms").orderByChild("code").equalTo(classCode.getText().toString());
+        Log.d("student", String.valueOf(loggedInStudent.getCNIC()));
+        Query query = dbActions.databaseReference.child("Classrooms").orderByChild("code").equalTo(String.valueOf(classCode.getText()));
+        Log.d("student", "querying");
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot snap : snapshot.getChildren())
+                Log.d("student", "gotcha");
+                for (DataSnapshot reqClass : snapshot.getChildren())
                 {
+                    Log.d("student", "Class found " + reqClass.child("name").getValue().toString());
+                    String classname = reqClass.child("name").getValue().toString();
 
-                    Log.d("class", "Class found "+snap.child("name").getValue().toString());
-
-                    /*if(snap.hasChild("Students"))
+                    /*ArrayList<StudentModel> std;
+                    if(snap.hasChild("students"))
                     {
-                        ArrayList<StudentModel> std = (ArrayList<StudentModel>) snap.child("Students").getValue();
+                        std = (ArrayList<StudentModel>) snap.child("students").getValue();
+                        std.add(loggedInStudent);
                     }
                     else
                     {
-                        ArrayList<StudentModel> std = new ArrayList<>();
-                        std.add()
+                        std = new ArrayList<>();
+                        std.add(loggedInStudent);
+                    }
+                    Log.d("student", String.valueOf(std.get(0).getName()));*/
+                    //dbActions.databaseReference.child("Classrooms").child(classname).child("students").setValue(std);
+
+                    Log.d("student", String.valueOf(loggedInStudent.getCNIC()));
+                    /*for(StudentModel student : std)
+                    {
+                        dbActions.databaseReference.child("Classrooms").child(classname).child("students").child(student.getID().toString()).setValue(student);
                     }*/
 
                 }

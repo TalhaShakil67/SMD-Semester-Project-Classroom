@@ -8,12 +8,15 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    DbActions dbActions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dbActions = new DbActions();
+
+        dbActions.databaseReference.child("new col").setValue("ok");
     }
 
     public void AddTeacher(View view)

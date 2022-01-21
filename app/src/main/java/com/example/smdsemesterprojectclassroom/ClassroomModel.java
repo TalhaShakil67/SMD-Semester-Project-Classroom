@@ -9,11 +9,11 @@ public class ClassroomModel
     TeacherModel Teacher;
     ArrayList<StudentModel> Students;
 
-    public ClassroomModel(String code, String name, TeacherModel teacher, ArrayList<StudentModel> students) {
+    public ClassroomModel(String code, String name, TeacherModel teacher)
+    {
         Code = code;
         Name = name;
         Teacher = teacher;
-        Students = students;
     }
 
     public String getCode() {

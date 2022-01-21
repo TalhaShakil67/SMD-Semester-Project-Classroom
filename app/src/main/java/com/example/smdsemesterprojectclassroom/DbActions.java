@@ -18,7 +18,7 @@ public class DbActions
 
     public DbActions()
     {
-        firebaseDatabase = FirebaseDatabase.getInstance("https://smd-semester-project-classroom-default-rtdb.firebaseio.com/");
+        firebaseDatabase = FirebaseDatabase.getInstance("https://smd-semester-project-portal-default-rtdb.firebaseio.com/");
         databaseReference = firebaseDatabase.getReference();
         updateAllTeachersCount();
         updateAllStudentsCount();
@@ -82,7 +82,6 @@ public class DbActions
         return currentStudentID;
     }
 
-
     public void addTeacher(TeacherModel teacher)
     {
         databaseReference.child("Teachers").child(teacher.getName()).setValue(teacher);
@@ -94,5 +93,6 @@ public class DbActions
     public void createClassroom(ClassroomModel classroom)
     {
         databaseReference.child("Classrooms").child(classroom.getName()).setValue(classroom);
+        Log.d("teacher", "creating class: " + classroom.getName()+classroom.getCode()+classroom.getTeacher().Qualification);
     }
 }
