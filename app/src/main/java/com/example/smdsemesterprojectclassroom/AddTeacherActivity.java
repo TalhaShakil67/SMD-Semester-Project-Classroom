@@ -40,19 +40,19 @@ public class AddTeacherActivity extends AppCompatActivity {
         qualification = findViewById(R.id.edittxtqualification);
         role = findViewById(R.id.edittxtrole);
 
-        name.setText("Tahir");
+        /*name.setText("Tahir");
         email.setText("tahir.farooq@gmail.com");
         phone.setText("03007898043");
         age.setText("35");
         qualification.setText("Phd Computer Science");
-        role.setText("Lecturer");
+        role.setText("Lecturer");*/
 
-        /*name.setText("Hashim Yasin");
+        name.setText("Hashim Yasin");
         email.setText("hashim.yasin@gmail.com");
         phone.setText("03007853884");
         age.setText("40");
         qualification.setText("Phd Computer Science");
-        role.setText("Assistant Professor");*/
+        role.setText("Assistant Professor");
 
         /*Intent intent = new Intent();
         intent.putExtra("id", loggedInTeacher.getID());

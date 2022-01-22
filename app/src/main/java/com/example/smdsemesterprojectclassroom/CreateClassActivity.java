@@ -64,6 +64,5 @@ public class CreateClassActivity extends AppCompatActivity {
         ClassroomModel classroom = new ClassroomModel(classID.getText().toString(), className.getText().toString(), loggedInTeacher);
         dbActions.createClassroom(classroom);
         Toast.makeText(getApplicationContext(), "Class Created Successfully", Toast.LENGTH_LONG).show();
-        Log.d("teacher", classID.getText().toString() + className.getText().toString() + loggedInTeacher.getName());
     }
 }

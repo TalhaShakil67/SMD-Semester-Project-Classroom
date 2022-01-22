@@ -15,8 +15,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         dbActions = new DbActions();
-
-        dbActions.databaseReference.child("new col").setValue("ok");
     }
 
     public void AddTeacher(View view)

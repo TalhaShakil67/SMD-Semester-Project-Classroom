@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,8 +33,7 @@ public class MyClassesActivity extends AppCompatActivity {
         classCode = findViewById(R.id.edittxtenterclasscode);
         studentObject = getSharedPreferences("LoggedInStudent", 0);
 
-        //classCode.setText("HBXA2PJQ1F");
-        classCode.setText("2XKN20T4S4");
+        classCode.setText("C7ZD01WKY7");        //testing
 
         loggedInStudent = new StudentModel(
                 Integer.parseInt(studentObject.getString("id", "id not found")),
@@ -47,38 +47,15 @@ public class MyClassesActivity extends AppCompatActivity {
 
     public void JoinClass(View view)
     {
-        Log.d("student", String.valueOf(loggedInStudent.getCNIC()));
         Query query = dbActions.databaseReference.child("Classrooms").orderByChild("code").equalTo(String.valueOf(classCode.getText()));
-        Log.d("student", "querying");
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.d("student", "gotcha");
                 for (DataSnapshot reqClass : snapshot.getChildren())
                 {
-                    Log.d("student", "Class found " + reqClass.child("name").getValue().toString());
                     String classname = reqClass.child("name").getValue().toString();
-
-                    /*ArrayList<StudentModel> std;
-                    if(snap.hasChild("students"))
-                    {
-                        std = (ArrayList<StudentModel>) snap.child("students").getValue();
-                        std.add(loggedInStudent);
-                    }
-                    else
-                    {
-                        std = new ArrayList<>();
-                        std.add(loggedInStudent);
-                    }
-                    Log.d("student", String.valueOf(std.get(0).getName()));*/
-                    //dbActions.databaseReference.child("Classrooms").child(classname).child("students").setValue(std);
-
-                    Log.d("student", String.valueOf(loggedInStudent.getCNIC()));
-                    /*for(StudentModel student : std)
-                    {
-                        dbActions.databaseReference.child("Classrooms").child(classname).child("students").child(student.getID().toString()).setValue(student);
-                    }*/
-
+                    dbActions.databaseReference.child("Classrooms").child(classname).child("students").child("Student ID "+loggedInStudent.getID()).setValue(loggedInStudent);
+                    Toast.makeText(getApplicationContext(), "Class Joined Successfully", Toast.LENGTH_LONG).show();
                 }
             }
 

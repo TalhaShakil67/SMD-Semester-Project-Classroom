@@ -93,6 +93,5 @@ public class DbActions
     public void createClassroom(ClassroomModel classroom)
     {
         databaseReference.child("Classrooms").child(classroom.getName()).setValue(classroom);
-        Log.d("teacher", "creating class: " + classroom.getName()+classroom.getCode()+classroom.getTeacher().Qualification);
     }
 }
