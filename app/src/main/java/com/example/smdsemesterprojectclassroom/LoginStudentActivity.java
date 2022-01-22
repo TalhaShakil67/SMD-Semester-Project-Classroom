@@ -30,7 +30,7 @@ public class LoginStudentActivity extends AppCompatActivity {
         studentObject = getSharedPreferences("LoggedInStudent", 0);
         editor = studentObject.edit();
 
-        cnictxt.setText("37406875972241");
+        cnictxt.setText("3740646811141");
     }
 
     public void StudentLogin(View view)
@@ -60,5 +60,9 @@ public class LoginStudentActivity extends AppCompatActivity {
 
             }
         });
+
+
+
+
     }
 }

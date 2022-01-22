@@ -2,6 +2,8 @@ package com.example.smdsemesterprojectclassroom;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -23,6 +25,9 @@ public class MyClassesActivity extends AppCompatActivity {
     EditText classCode;
     SharedPreferences studentObject;
     StudentModel loggedInStudent;
+    ArrayList<MyClassModelForAdapter> myClassesList;
+    MyAdapter myAdapter;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,46 @@ public class MyClassesActivity extends AppCompatActivity {
         dbActions = new DbActions();
         classCode = findViewById(R.id.edittxtenterclasscode);
         studentObject = getSharedPreferences("LoggedInStudent", 0);
+
+        myClassesList = new ArrayList<>();
+        myAdapter = new MyAdapter(myClassesList);
+        recyclerView = findViewById(R.id.recyclerview1);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(myAdapter);
+
+
+        Query query = dbActions.databaseReference.child("Classrooms");
+        Log.d("ok", "query passed");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.d("ok", "found "+snapshot.getChildrenCount());
+                for(DataSnapshot classs : snapshot.getChildren())
+                {
+                    Log.d("ok", "looping on classes");
+                    for(DataSnapshot students : classs.child("students").getChildren())
+                    {
+                        if(("Student ID " + loggedInStudent.getID().toString()).matches(students.getKey()))
+                        {
+                            myClassesList.add(new MyClassModelForAdapter(
+                                    classs.child("code").getValue().toString(),
+                                    classs.child("name").getValue().toString(),
+                                    (int) classs.child("students").getChildrenCount())
+                            );
+                        }
+                        //Log.d("ok", "Found " + ("Student ID " + loggedInStudent.getID().toString()) + "in class "+ classs.child("code").getValue().toString());
+                    }
+                }
+                myAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
         classCode.setText("C7ZD01WKY7");        //testing
 
