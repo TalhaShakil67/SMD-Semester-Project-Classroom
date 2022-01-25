@@ -1,9 +1,9 @@
 package com.example.smdsemesterprojectclassroom;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 
+import com.example.smdsemesterprojectclassroom.StudentPortal.StudentModel;
+import com.example.smdsemesterprojectclassroom.TeacherPortal.TeacherModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -12,8 +12,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class DbActions
 {
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
+    public FirebaseDatabase firebaseDatabase;
+    public DatabaseReference databaseReference;
     Integer currentTeacherID, currentStudentID;
 
     public DbActions()

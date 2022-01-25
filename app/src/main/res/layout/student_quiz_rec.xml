@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/purple_200">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -37,8 +36,8 @@
                     android:text=" Q:"
                     android:textColor="@color/black"
                     android:textSize="17sp"/>
-                <EditText
-                    android:id="@+id/quiz_question_edttxt"
+                <TextView
+                    android:id="@+id/student_quiz_question_edttxt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter your question here"
@@ -52,8 +51,8 @@
                 android:id="@+id/option_a1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="20dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -66,11 +65,11 @@
                     android:text=" a) "
                     android:textSize="15sp" />
 
-                <EditText
-                    android:id="@+id/quiz_option_a1"
+                <TextView
+                    android:id="@+id/student_quiz_option_a1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter Option 1"
+                    android:text="AAAA"
                     android:textSize="15sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -79,8 +78,8 @@
                 android:id="@+id/option_b1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -93,8 +92,8 @@
                     android:text=" b) "
                     android:textSize="15sp" />
 
-                <EditText
-                    android:id="@+id/quiz_option_b1"
+                <TextView
+                    android:id="@+id/student_quiz_option_b1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter Option 2"
@@ -105,8 +104,8 @@
                 android:id="@+id/option_c1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -119,8 +118,8 @@
                     android:text=" c) "
                     android:textSize="15sp" />
 
-                <EditText
-                    android:id="@+id/quiz_option_c1"
+                <TextView
+                    android:id="@+id/student_quiz_option_c1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter Option 3"
@@ -132,8 +131,8 @@
                 android:id="@+id/option_d1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
                 android:orientation="horizontal"
@@ -147,8 +146,8 @@
                     android:layout_height="wrap_content"
                     android:text=" d) "
                     android:textSize="15sp" />
-                <EditText
-                    android:id="@+id/quiz_option_d1"
+                <TextView
+                    android:id="@+id/student_quiz_option_d1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter Option 4"
@@ -166,26 +165,25 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
                 <RadioGroup
-                    android:id="@+id/r_opt"
+                    android:id="@+id/student_r_opt"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <RadioButton
-                        android:id="@+id/r_opt_1"
+                        android:id="@+id/student_r_opt_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <RadioButton
-                        android:id="@+id/r_opt_2"
+                        android:id="@+id/student_r_opt_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <RadioButton
-                        android:id="@+id/r_opt_3"
+                        android:id="@+id/student_r_opt_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <RadioButton
-                        android:id="@+id/r_opt_4"
+                        android:id="@+id/student_r_opt_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
-
                 </RadioGroup>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

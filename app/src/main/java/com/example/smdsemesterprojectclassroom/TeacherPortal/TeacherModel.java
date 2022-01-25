@@ -1,9 +1,4 @@
-package com.example.smdsemesterprojectclassroom;
-
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import java.io.Serializable;
+package com.example.smdsemesterprojectclassroom.TeacherPortal;
 
 /*
 public class TeacherModel implements Parcelable
@@ -131,21 +126,35 @@ public class TeacherModel implements Parcelable
 }
 */
 
-public class TeacherModel
-{
+import java.io.Serializable;
+
+public class TeacherModel implements Serializable {
     Integer ID;
-    String Name, Email, Qualification, Role;
+    String Name, Email, Qualification, Subject;
     Integer Age;
     Long PhoneNumber;
 
-    public TeacherModel(Integer ID, String name, String email, String role, String qualification, Integer age, Long phoneNumber) {
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+    }
+
+    String Password;
+
+
+
+    public TeacherModel(Integer ID, String name, String email, String subject, String qualification, Integer age, Long phoneNumber, String password) {
         this.ID = ID;
         Name = name;
         Email = email;
         Qualification = qualification;
-        Role = role;
+        Subject = subject;
         Age = age;
         PhoneNumber = phoneNumber;
+        Password = password;
     }
 
     public Integer getID() {
@@ -180,12 +189,12 @@ public class TeacherModel
         Qualification = qualification;
     }
 
-    public String getRole() {
-        return Role;
+    public String getSubject() {
+        return Subject;
     }
 
-    public void setRole(String role) {
-        Role = role;
+    public void setSubject(String subject) {
+        Subject = subject;
     }
 
     public Integer getAge() {

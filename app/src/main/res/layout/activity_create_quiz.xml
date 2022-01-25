@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TeacherQuizCreation.CreateQuizActivity">
+    tools:context=".TeacherPortal.TeacherQuizCreation.CreateQuizActivity">
 
     <TextView
         android:id="@+id/creat_quiz_h1"
@@ -21,10 +21,10 @@
     <LinearLayout
         android:id="@+id/creat_quiz_linear1"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:orientation="horizontal"
@@ -32,16 +32,44 @@
         <TextView
             android:id="@+id/create_quiz_title1"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Enter quiz title:"
+            android:text="Enter quiz title: "
             android:textColor="@color/black"
             android:textSize="17sp"/>
 
         <EditText
             android:id="@+id/create_quiz_title_edttxt"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="17sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/creat_quiz_linear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/creat_quiz_linear1">
+        <TextView
+            android:id="@+id/create_quiz_score1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Enter quiz total score: "
+            android:textColor="@color/black"
+            android:textSize="17sp"/>
+
+        <EditText
+            android:id="@+id/create_quiz_score_edttxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="17sp"/>
     </LinearLayout>
@@ -55,9 +83,9 @@
         android:textColor="@color/black"
         android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/creat_quiz_linear1"
+        app:layout_constraintTop_toBottomOf="@+id/creat_quiz_linear2"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/button6"
@@ -65,9 +93,9 @@
         android:layout_height="50dp"
         android:text="Add Question"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/creat_quiz_linear1"
+        app:layout_constraintTop_toBottomOf="@+id/creat_quiz_linear2"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:onClick="AddQuestion"/>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -6,79 +6,98 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="20dp">
 
-    <TextView
-        android:id="@+id/t1"
-        android:layout_width="137dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="4dp"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:text="Class Code:"
-        app:layout_constraintEnd_toStartOf="@+id/classcodetxt"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/classcodetxt"
-        android:layout_width="118dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="96dp"
-        android:text="TextView"
-        android:textColor="@color/black"
-        android:textSize="18sp"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/classnametxt"
-        android:layout_width="118dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="96dp"
-        android:text="TextView"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classcodetxt" />
-
-    <TextView
-        android:id="@+id/numstudentstxt"
-        android:layout_width="118dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="96dp"
-        android:text="TextView"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classnametxt" />
-
-    <TextView
-        android:id="@+id/t2"
-        android:layout_width="137dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="8dp"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:text="Class Name:"
-        app:layout_constraintEnd_toStartOf="@+id/classnametxt"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/t1" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/t3"
-        android:layout_width="137dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="8dp"
-        android:text="No. of Students:"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/numstudentstxt"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/t2" />
+            <TextView
+                android:id="@+id/t1"
+                android:layout_width="137dp"
+                android:layout_height="19dp"
+                android:layout_marginTop="4dp"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:text="Class Code:"
+                app:layout_constraintEnd_toStartOf="@+id/classcodetxt"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/classcodetxt"
+                android:layout_width="118dp"
+                android:layout_height="19dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="96dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/classnametxt"
+                android:layout_width="118dp"
+                android:layout_height="19dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="96dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/classcodetxt" />
+
+            <TextView
+                android:id="@+id/numstudentstxt"
+                android:layout_width="118dp"
+                android:layout_height="19dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="96dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/classnametxt" />
+
+            <TextView
+                android:id="@+id/t2"
+                android:layout_width="137dp"
+                android:layout_height="19dp"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:text="Class Name:"
+                app:layout_constraintEnd_toStartOf="@+id/classnametxt"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/t1" />
+
+            <TextView
+                android:id="@+id/t3"
+                android:layout_width="137dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"
+                android:text="No. of Students:"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/numstudentstxt"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/t2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

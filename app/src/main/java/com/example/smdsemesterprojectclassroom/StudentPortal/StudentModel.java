@@ -1,13 +1,19 @@
-package com.example.smdsemesterprojectclassroom;
+package com.example.smdsemesterprojectclassroom.StudentPortal;
 
-public class StudentModel
+import java.io.Serializable;
+
+public class StudentModel implements Serializable
 {
     private Integer ID, Age, Semester;
     private String Name;
-    private long CNIC;
+    private String CNIC;
     private float CGPA;
+    private String Email;
+    private String Password;
 
-    public StudentModel(Integer ID, String name, long CNIC, Integer age, Integer semester, float CGPA)
+
+
+    public StudentModel(Integer ID, String name, String CNIC, Integer age, Integer semester, float CGPA, String email, String password)
     {
         this.ID = ID;
         this.Name = name;
@@ -15,6 +21,8 @@ public class StudentModel
         this.Age = age;
         this.Semester = semester;
         this.CGPA = CGPA;
+        this.Email = email;
+        this.Password = password;
     }
 
     public Integer getID(){
@@ -50,11 +58,11 @@ public class StudentModel
         Name = name;
     }
 
-    public long getCNIC() {
+    public String getCNIC() {
         return CNIC;
     }
 
-    public void setCNIC(long CNIC) {
+    public void setCNIC(String CNIC) {
         this.CNIC = CNIC;
     }
 
@@ -64,5 +72,20 @@ public class StudentModel
 
     public void setCGPA(float CGPA) {
         this.CGPA = CGPA;
+    }
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
     }
 }

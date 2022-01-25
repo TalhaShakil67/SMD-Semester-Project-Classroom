@@ -1,18 +1,18 @@
-package com.example.smdsemesterprojectclassroom.TeacherQuizCreation;
+package com.example.smdsemesterprojectclassroom.TeacherPortal.TeacherQuizCreation;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smdsemesterprojectclassroom.R;
@@ -26,7 +26,7 @@ public class CreateQuizRecAdapter extends RecyclerView.Adapter<CreateQuizRecAdap
         return arrayList;
     }
 
-    ArrayList<QuestionModel> arrayList;
+    public ArrayList<QuestionModel> arrayList;
 
     public CreateQuizRecAdapter(ArrayList<QuestionModel> arrayList) {
         this.arrayList = arrayList;
@@ -44,6 +44,8 @@ public class CreateQuizRecAdapter extends RecyclerView.Adapter<CreateQuizRecAdap
 
     @Override
     public void onBindViewHolder(@NonNull myHolder holder, @SuppressLint("RecyclerView") int position) {
+
+        arrayList.get(position).question_marks = 1;
 
         holder.quiz_option_a.setText(arrayList.get(position).option_1);
         holder.quiz_option_a.addTextChangedListener(new TextWatcher() {
@@ -135,6 +137,31 @@ public class CreateQuizRecAdapter extends RecyclerView.Adapter<CreateQuizRecAdap
             }
         });
 
+        holder.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch (i)
+                {
+                    case R.id.r_opt_1:
+                        arrayList.get(position).correct_option = 1;
+                        break;
+                    case R.id.r_opt_2:
+                        arrayList.get(position).correct_option = 2;
+                        break;
+                    case R.id.r_opt_3:
+                        arrayList.get(position).correct_option = 3;
+                        break;
+                    case R.id.r_opt_4:
+                        arrayList.get(position).correct_option = 4;
+                        break;
+                    default:
+                        arrayList.get(position).correct_option = 1;
+                        break;
+
+                }
+            }
+        });
+
     }
 
     @Override
@@ -150,6 +177,7 @@ public class CreateQuizRecAdapter extends RecyclerView.Adapter<CreateQuizRecAdap
         EditText quiz_option_b;
         EditText quiz_option_c;
         EditText quiz_option_d;
+        RadioGroup radioGroup;
 
         public myHolder(@NonNull View itemView) {
             super(itemView);
@@ -158,6 +186,7 @@ public class CreateQuizRecAdapter extends RecyclerView.Adapter<CreateQuizRecAdap
             quiz_option_b = itemView.findViewById(R.id.quiz_option_b1);
             quiz_option_c = itemView.findViewById(R.id.quiz_option_c1);
             quiz_option_d = itemView.findViewById(R.id.quiz_option_d1);
+            radioGroup = itemView.findViewById(R.id.r_opt);
 
         }
     }

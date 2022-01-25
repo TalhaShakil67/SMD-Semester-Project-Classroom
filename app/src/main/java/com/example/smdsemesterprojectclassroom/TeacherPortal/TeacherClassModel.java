@@ -1,15 +1,14 @@
-package com.example.smdsemesterprojectclassroom;
+package com.example.smdsemesterprojectclassroom.TeacherPortal;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
-public class MyClassModelForAdapter implements Serializable
-{
+public class TeacherClassModel implements Serializable {
+
     String Code;
     String Name;
-    Integer NumberOfStudents;
+    int NumberOfStudents;
 
-    public MyClassModelForAdapter(String code, String name, Integer numberOfStudents) {
+    public TeacherClassModel(String code, String name, int numberOfStudents) {
         Code = code;
         Name = name;
         NumberOfStudents = numberOfStudents;
@@ -31,11 +30,11 @@ public class MyClassModelForAdapter implements Serializable
         Name = name;
     }
 
-    public Integer getNumberOfStudents() {
+    public int getNumberOfStudents() {
         return NumberOfStudents;
     }
 
-    public void setNumberOfStudents(Integer numberOfStudents) {
+    public void setNumberOfStudents(int numberOfStudents) {
         NumberOfStudents = numberOfStudents;
     }
 }

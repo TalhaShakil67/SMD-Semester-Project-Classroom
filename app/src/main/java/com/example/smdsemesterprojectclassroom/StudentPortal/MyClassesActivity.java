@@ -1,10 +1,11 @@
-package com.example.smdsemesterprojectclassroom;
+package com.example.smdsemesterprojectclassroom.StudentPortal;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.smdsemesterprojectclassroom.DbActions;
+import com.example.smdsemesterprojectclassroom.MyClassModelForAdapter;
+import com.example.smdsemesterprojectclassroom.R;
+import com.example.smdsemesterprojectclassroom.StudentPortal.MyAdapter;
+import com.example.smdsemesterprojectclassroom.StudentPortal.StudentClassDetailsActivity;
+import com.example.smdsemesterprojectclassroom.StudentPortal.StudentModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.Query;
@@ -36,7 +43,7 @@ public class MyClassesActivity extends AppCompatActivity {
 
         dbActions = new DbActions();
         classCode = findViewById(R.id.edittxtenterclasscode);
-        studentObject = getSharedPreferences("LoggedInStudent", 0);
+        studentObject = getSharedPreferences("LoginDetailsObject", 0);
 
         myClassesList = new ArrayList<>();
         myAdapter = new MyAdapter(myClassesList);
@@ -47,14 +54,14 @@ public class MyClassesActivity extends AppCompatActivity {
 
 
         Query query = dbActions.databaseReference.child("Classrooms");
-        Log.d("ok", "query passed");
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.d("ok", "found "+snapshot.getChildrenCount());
+                myClassesList.clear();
+                //Log.d("ok", "found "+snapshot.getChildrenCount());
                 for(DataSnapshot classs : snapshot.getChildren())
                 {
-                    Log.d("ok", "looping on classes");
+                    //Log.d("ok", "looping on classes");
                     for(DataSnapshot students : classs.child("students").getChildren())
                     {
                         if(("Student ID " + loggedInStudent.getID().toString()).matches(students.getKey()))
@@ -77,17 +84,29 @@ public class MyClassesActivity extends AppCompatActivity {
             }
         });
 
-
-        classCode.setText("C7ZD01WKY7");        //testing
-
         loggedInStudent = new StudentModel(
                 Integer.parseInt(studentObject.getString("id", "id not found")),
                 studentObject.getString("name", "name not found"),
-                Long.parseLong(studentObject.getString("cnic", "cnic not found")),
+                studentObject.getString("cnic", "cnic not found"),
                 Integer.parseInt(studentObject.getString("age", "age not found")),
                 Integer.parseInt(studentObject.getString("semester", "semester not found")),
-                Float.parseFloat(studentObject.getString("cgpa", "cgpa not found"))
-        );
+                Float.parseFloat(studentObject.getString("cgpa", "cgpa not found")),
+                studentObject.getString("email", "email not found"),
+                studentObject.getString("password", "password not found")
+            );
+
+        myAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View itemView, int position) {
+                Intent intent = new Intent(getApplicationContext(), StudentClassDetailsActivity.class);
+                intent.putExtra("class", myClassesList.get(position));
+                intent.putExtra("student", loggedInStudent);
+                startActivity(intent);
+            }
+        });
+
+
+        //classCode.setText("HYX9LOLHR4");        //testing
     }
 
     public void JoinClass(View view)

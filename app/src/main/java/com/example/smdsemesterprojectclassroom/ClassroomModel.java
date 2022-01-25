@@ -1,5 +1,8 @@
 package com.example.smdsemesterprojectclassroom;
 
+import com.example.smdsemesterprojectclassroom.StudentPortal.StudentModel;
+import com.example.smdsemesterprojectclassroom.TeacherPortal.TeacherModel;
+
 import java.util.ArrayList;
 
 public class ClassroomModel

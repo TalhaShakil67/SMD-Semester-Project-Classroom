@@ -10,85 +10,53 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SMDSemesterProjectClassroom">
         <activity
-            android:name=".LoginStudentActivity"
+            android:name=".AdminPortal.AdminPortalActivity"
+            android:exported="true" />
+        <activity
+            android:name=".StudentQuizActivity"
+            android:exported="true" />
+        <activity
+            android:name=".StudentPortal.StudentClassDetailsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".TeacherPortal.TeacherClassDetailsActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
-            android:name=".TeacherQuizCreation.CreateQuizActivity"
+            android:name=".LoggedOutRouting.LoggedOutActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
-            android:name=".LoginTeacherActivity"
+            android:name=".TeacherPortal.TeacherQuizCreation.CreateQuizActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
-            android:name=".ClassActivity"
+            android:name=".StudentPortal.MyClassesActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
-            android:name=".MyClassesActivity"
+            android:name=".TeacherPortal.CreateClassActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
-            android:name=".CreateClassActivity"
+            android:name=".TeacherPortal.TeacherPortalActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
-            android:name=".TeacherPortalActivity"
+            android:name=".AdminPortal.AddTeacherActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
-            android:name=".AddTeacherActivity"
+            android:name=".AdminPortal.AddStudentActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".AddStudentActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"

@@ -1,6 +1,8 @@
-package com.example.smdsemesterprojectclassroom.TeacherQuizCreation;
+package com.example.smdsemesterprojectclassroom.TeacherPortal.TeacherQuizCreation;
 
-public class QuestionModel {
+import java.io.Serializable;
+
+public class QuestionModel implements Serializable {
 
     String quiz_question;
     String option_1;

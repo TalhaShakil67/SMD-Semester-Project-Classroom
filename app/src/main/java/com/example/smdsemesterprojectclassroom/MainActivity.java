@@ -6,27 +6,30 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.smdsemesterprojectclassroom.AdminPortal.AddStudentActivity;
+import com.example.smdsemesterprojectclassroom.AdminPortal.AddTeacherActivity;
+import com.example.smdsemesterprojectclassroom.LoggedOutRouting.LoggedOutActivity;
 
-    DbActions dbActions;
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        dbActions = new DbActions();
+
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(MainActivity.this, LoggedOutActivity.class);
+                MainActivity.this.startActivity(intent);
+                MainActivity.this.finish();
+            }
+        }, 900);
+
     }
 
-    public void AddTeacher(View view)
-    {
-        Intent intent;
-        intent = new Intent(this, AddTeacherActivity.class);
-        startActivity(intent);
-    }
-    public void AddStudent(View view)
-    {
-        Intent intent;
-        intent = new Intent(this, AddStudentActivity.class);
-        startActivity(intent);
-    }
+
 }
